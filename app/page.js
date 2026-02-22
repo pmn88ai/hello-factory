@@ -6,6 +6,7 @@ export default function Home() {
   const [clientTime, setClientTime] = useState("");
   const [requestCount, setRequestCount] = useState(0);
   const [status, setStatus] = useState("idle");
+  const [serverCount, setServerCount] = useState(0);
 
   const fetchServerTime = async () => {
     try {
@@ -16,6 +17,7 @@ export default function Home() {
       setServerTime(data.serverTime);
       setStatus(data.status);
       setRequestCount((prev) => prev + 1);
+      setServerCount(data.serverRequestCount);
     } catch (error) {
       setStatus("error");
     }
@@ -47,6 +49,7 @@ export default function Home() {
         <p>🖥 Server Time: {serverTime}</p>
         <p>💻 Client Time: {clientTime}</p>
         <p>📊 API Calls: {requestCount}</p>
+        <p>🏭 Server API Calls: {serverCount}</p>
         <p>🟢 Status: {status}</p>
       </div>
 
