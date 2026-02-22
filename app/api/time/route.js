@@ -3,5 +3,6 @@ export async function GET() {
   
     return Response.json({
       serverTime: now,
+      status: "ok",
     });
   }
